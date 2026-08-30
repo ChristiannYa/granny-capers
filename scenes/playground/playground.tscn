@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bikn4n5oprxdg"]
+
+[ext_resource type="ArrayMesh" uid="uid://n8y2k0meup1k" path="res://resources/meshes/scenery/playground_mesh.res" id="1_sgctp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ff5nr"]
+sky_material = SubResource("ProceduralSkyMaterial_eha2c")
+
+[sub_resource type="Environment" id="Environment_8c831"]
+background_mode = 2
+sky = SubResource("Sky_ff5nr")
+glow_enabled = true
+
+[node name="Playground" type="Node" unique_id=1058083581]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1253998812]
+environment = SubResource("Environment_8c831")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1633918914]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1400446901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9746284, 3.2589703)
+
+[node name="PlayGround" type="MeshInstance3D" parent="." unique_id=986031986]
+mesh = ExtResource("1_sgctp")
