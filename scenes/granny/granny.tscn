@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://doerqvcoy1lgh"]
+
+[ext_resource type="Script" uid="uid://c6xynytr3jx53" path="res://scenes/granny/granny.gd" id="1_f4lpe"]
+[ext_resource type="AudioStream" uid="uid://bfu63tkg4gbrk" path="res://assets/sounds/granny/player_land.wav" id="2_3cyfu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf0i"]
+albedo_color = Color(1, 1, 0.7647059, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fcf0i"]
+material = SubResource("StandardMaterial3D_fcf0i")
+
+[sub_resource type="SphereMesh" id="SphereMesh_fcf0i"]
+radius = 0.3
+height = 0.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fcf0i"]
+
+[node name="Granny" type="CharacterBody3D" unique_id=584751437]
+script = ExtResource("1_f4lpe")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1536678033]
+mesh = SubResource("CapsuleMesh_fcf0i")
+
+[node name="Nose" type="MeshInstance3D" parent="Body" unique_id=2009882462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("SphereMesh_fcf0i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=236254270]
+shape = SubResource("CapsuleShape3D_fcf0i")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1037404480]
+transform = Transform3D(1, 0, 0, 0, 0.93021685, 0.36701035, 0, -0.36701035, 0.93021685, 0, 2.4941547, 3.4047031)
+
+[node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=874703259]
+stream = ExtResource("2_3cyfu")
