@@ -17,6 +17,7 @@ height = 0.2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fcf0i"]
 
 [node name="Granny" type="CharacterBody3D" unique_id=584751437]
+collision_layer = 2
 script = ExtResource("1_f4lpe")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1536678033]
@@ -28,9 +29,6 @@ mesh = SubResource("SphereMesh_fcf0i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=236254270]
 shape = SubResource("CapsuleShape3D_fcf0i")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1037404480]
-transform = Transform3D(1, 0, 0, 0, 0.93021685, 0.36701035, 0, -0.36701035, 0.93021685, 0, 2.4941547, 3.4047031)
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=874703259]
 stream = ExtResource("2_3cyfu")
@@ -44,3 +42,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5784559, 0)
 billboard = 1
 text = "Add your text here"
 font_size = 46
+
+[node name="CameraController" type="Node3D" parent="." unique_id=1366777978]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraController" unique_id=1644031406]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1, 0)
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D" unique_id=1037404480]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)

@@ -61,6 +61,7 @@ material_override = SubResource("StandardMaterial3D_tykqf")
 mesh = ExtResource("1_sgctp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PlayGround" unique_id=1985206794]
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayGround/StaticBody3D" unique_id=1531366807]
 visible = false
