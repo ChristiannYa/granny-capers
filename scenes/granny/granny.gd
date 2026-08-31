@@ -3,7 +3,11 @@ extends CharacterBody3D
 
 const _GRAVITY := -30
 const _ROTATE_LERP := 8.0
+const _SPEED := 5.0
+const _DECELERATION := 30.0
+const _JUMP_VELOCITY := 12.5
 
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var land_sound: AudioStreamPlayer = $LandSound
 @onready var debug_label: Label3D = $DebugLabel
 @onready var body: MeshInstance3D = $Body
@@ -13,6 +17,7 @@ var _last_on_floor := false
 
 func _physics_process(delta: float):
 	apply_gravity(delta)
+	handle_jump()
 	handle_movement(delta)
 	move_and_slide()
 	check_landing()
@@ -33,6 +38,19 @@ func handle_movement(delta: float):
 			atan2(-dir.x, -dir.z), 
 			delta * _ROTATE_LERP
 		)
+
+		velocity.x = dir.x * _SPEED
+		velocity.z = dir.z * _SPEED
+	else:
+		# print("else") # This block is always running...
+		# Stops Granny from moving continiously
+		velocity.x = move_toward(velocity.x, 0.0, _DECELERATION * delta)
+		velocity.z = move_toward(velocity.z, 0.0, _DECELERATION * delta)
+
+func handle_jump():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = _JUMP_VELOCITY
+		jump_sound.play()
 
 func apply_gravity(delta: float):
 	velocity.y += _GRAVITY * delta

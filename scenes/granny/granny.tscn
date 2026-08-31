@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6xynytr3jx53" path="res://scenes/granny/granny.gd" id="1_f4lpe"]
 [ext_resource type="AudioStream" uid="uid://bfu63tkg4gbrk" path="res://assets/sounds/granny/player_land.wav" id="2_3cyfu"]
+[ext_resource type="AudioStream" uid="uid://l726rtlmrm4a" path="res://assets/sounds/granny/player_jump.wav" id="3_h0bxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcf0i"]
 albedo_color = Color(1, 1, 0.7647059, 1)
@@ -33,6 +34,10 @@ transform = Transform3D(1, 0, 0, 0, 0.93021685, 0.36701035, 0, -0.36701035, 0.93
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=874703259]
 stream = ExtResource("2_3cyfu")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=992966438]
+stream = ExtResource("3_h0bxx")
+pitch_scale = 1.6
 
 [node name="DebugLabel" type="Label3D" parent="." unique_id=1809434436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5784559, 0)
