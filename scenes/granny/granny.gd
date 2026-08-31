@@ -1,12 +1,16 @@
 class_name Granny
 extends CharacterBody3D
 
-const _GRAVITY := -30
+const _GRAVITY := -30.0
+const _FALL_GRAVITY := -55.0
 const _ROTATE_LERP := 8.0
 const _SPEED := 5.0
 const _DECELERATION := 30.0
-const _JUMP_VELOCITY := 12.5
+const _JUMP_VELOCITY := 32.5
 const _CAM_ROTATION_SPEED := PI
+const _CAM_TILT_MAX := 45.0
+const _CAM_TILT_HEIGHT := 12.0
+const _CAM_TILT_LERP := 0.9
 
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var land_sound: AudioStreamPlayer = $LandSound
@@ -16,6 +20,12 @@ const _CAM_ROTATION_SPEED := PI
 
 ## Tracks whether on the previous frame we were on the floor or not
 var _last_on_floor := false
+var _cam_base_tilt := 0.0
+var _ground_y := 0.0
+
+func _ready():
+	_cam_base_tilt = camera_controller.rotation.x
+	_ground_y = global_position.y
 
 func _physics_process(delta: float):
 	apply_gravity(delta)
@@ -23,6 +33,7 @@ func _physics_process(delta: float):
 	handle_movement(delta)
 	handle_camera(delta)
 	follow_camera()
+	update_camera_tilt(delta)
 	move_and_slide()
 	check_landing()
 
@@ -33,6 +44,12 @@ func handle_camera(delta: float):
 
 func follow_camera():
 	camera_controller.global_position = camera_controller.global_position.lerp(global_position, 0.3)
+
+func update_camera_tilt(delta: float):
+	var height: float = maxf(0.0, global_position.y - _ground_y)
+	var t: float = clampf(height / _CAM_TILT_HEIGHT, 0.0, 1.0)
+	var targ: float = _cam_base_tilt - deg_to_rad(_CAM_TILT_MAX) * t
+	camera_controller.rotation.x = lerpf(camera_controller.rotation.x, targ, delta * _CAM_TILT_LERP)
 
 func handle_movement(delta: float):
 	var input_dir: Vector2 = Input.get_vector("m_left", "m_right", "m_fwd", "m_back")
@@ -54,7 +71,6 @@ func handle_movement(delta: float):
 		velocity.x = dir.x * _SPEED
 		velocity.z = dir.z * _SPEED
 	else:
-		# print("else") # This block is always running...
 		# Stops Granny from moving continiously
 		velocity.x = move_toward(velocity.x, 0.0, _DECELERATION * delta)
 		velocity.z = move_toward(velocity.z, 0.0, _DECELERATION * delta)
@@ -65,10 +81,9 @@ func handle_jump():
 		jump_sound.play()
 
 func apply_gravity(delta: float):
-	velocity.y += _GRAVITY * delta
+	velocity.y += (_FALL_GRAVITY if velocity.y < 0.0 else _GRAVITY) * delta
 
 func check_landing():
-	if !_last_on_floor and is_on_floor():
-		land_sound.play()
-
+	if !_last_on_floor and is_on_floor(): land_sound.play()
+	if is_on_floor(): _ground_y = global_position.y
 	_last_on_floor = is_on_floor()
