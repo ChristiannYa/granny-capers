@@ -22,6 +22,7 @@ func _physics_process(delta: float):
 	handle_jump()
 	handle_movement(delta)
 	handle_camera(delta)
+	follow_camera()
 	move_and_slide()
 	check_landing()
 
@@ -29,6 +30,9 @@ func handle_camera(delta: float):
 	var cam_turn: float = Input.get_axis("cam_right", "cam_left")
 	debug_label.text += "\ncam: %.2f" % cam_turn
 	camera_controller.rotate_y(cam_turn * delta * _CAM_ROTATION_SPEED)
+
+func follow_camera():
+	camera_controller.global_position = camera_controller.global_position.lerp(global_position, 0.3)
 
 func handle_movement(delta: float):
 	var input_dir: Vector2 = Input.get_vector("m_left", "m_right", "m_fwd", "m_back")

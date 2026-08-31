@@ -44,6 +44,7 @@ text = "Add your text here"
 font_size = 46
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1366777978]
+top_level = true
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraController" unique_id=1644031406]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 1, 0)
