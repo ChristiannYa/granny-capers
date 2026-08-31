@@ -6,7 +6,7 @@ const _FALL_GRAVITY := -55.0
 const _ROTATE_LERP := 8.0
 const _SPEED := 5.0
 const _DECELERATION := 30.0
-const _JUMP_VELOCITY := 32.5
+const _JUMP_VELOCITY := 12.5
 const _CAM_ROTATION_SPEED := PI
 const _CAM_TILT_MAX := 45.0
 const _CAM_TILT_HEIGHT := 12.0
@@ -15,8 +15,8 @@ const _CAM_TILT_LERP := 0.9
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var land_sound: AudioStreamPlayer = $LandSound
 @onready var debug_label: Label3D = $DebugLabel
-@onready var body: MeshInstance3D = $Body
 @onready var camera_controller: Node3D = $CameraController
+@onready var granny: Node3D = $Granny
 
 ## Tracks whether on the previous frame we were on the floor or not
 var _last_on_floor := false
@@ -60,8 +60,8 @@ func handle_movement(delta: float):
 
 	# Check if Granny changed facing direction
 	if dir.length() > 0.01:
-		body.rotation.y = lerp_angle(
-			body.rotation.y, 
+		granny.rotation.y = lerp_angle(
+			granny.rotation.y, 
 			# `atan2()`'s args are negated because Granny is facing in the opposite direction
 			# of the z axis
 			atan2(-dir.x, -dir.z), 
