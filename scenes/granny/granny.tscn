@@ -16,6 +16,7 @@
 [ext_resource type="Animation" uid="uid://dq0t54tn8ai02" path="res://resources/animations/granny/Run.res" id="12_pmuyq"]
 [ext_resource type="Animation" uid="uid://cqgv4g5c0kco7" path="res://resources/animations/granny/Throw.res" id="13_na0uq"]
 [ext_resource type="Animation" uid="uid://dfa5dqnfccfk5" path="res://resources/animations/granny/Tpose.res" id="14_1ttej"]
+[ext_resource type="AudioStream" uid="uid://c0t7b4qfqje5o" path="res://assets/sounds/granny/player_footsteps.wav" id="17_wp23x"]
 
 [sub_resource type="Skin" id="Skin_tqxik"]
 resource_name = "Skin"
@@ -1171,6 +1172,10 @@ stream = ExtResource("2_3cyfu")
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=992966438]
 stream = ExtResource("3_h0bxx")
 pitch_scale = 1.6
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="." unique_id=1384705659]
+stream = ExtResource("17_wp23x")
+pitch_scale = 1.15
 
 [node name="DebugLabel" type="Label3D" parent="." unique_id=1809434436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5784559, 0)

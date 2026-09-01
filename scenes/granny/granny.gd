@@ -14,6 +14,7 @@ const _CAM_TILT_LERP := 0.9
 
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var land_sound: AudioStreamPlayer = $LandSound
+@onready var walk_sound: AudioStreamPlayer = $WalkSound
 @onready var debug_label: Label3D = $DebugLabel
 @onready var camera_controller: Node3D = $CameraController
 @onready var granny: Node3D = $Granny
@@ -46,6 +47,7 @@ func _physics_process(delta: float):
 	update_camera_tilt(delta)
 	move_and_slide()
 	check_landing()
+	update_walk_sound()
 	handle_throw()
 
 func handle_camera(delta: float):
@@ -98,6 +100,11 @@ func check_landing():
 	if !_last_on_floor and is_on_floor(): land_sound.play()
 	if is_on_floor(): _ground_y = global_position.y
 	_last_on_floor = is_on_floor()
+
+func update_walk_sound():
+	var walking: bool = is_moving and is_on_floor()
+	if walking and !walk_sound.playing: walk_sound.play()
+	elif !walking and walk_sound.playing: walk_sound.stop()
 
 func handle_throw():
 	if Input.is_action_just_pressed("shoot") and is_on_floor() and !is_throwing:
