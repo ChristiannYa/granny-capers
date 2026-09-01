@@ -23,6 +23,12 @@ var _last_on_floor := false
 var _cam_base_tilt := 0.0
 var _ground_y := 0.0
 
+var is_moving: bool:
+	get: return !Vector2(velocity.x, velocity.z).is_zero_approx()
+
+var is_falling: bool:
+	get: return velocity.y < 0.0
+
 func _ready():
 	_cam_base_tilt = camera_controller.rotation.x
 	_ground_y = global_position.y
