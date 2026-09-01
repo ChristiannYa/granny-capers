@@ -19,6 +19,7 @@ const _CAM_TILT_LERP := 0.9
 @onready var camera_controller: Node3D = $CameraController
 @onready var granny: Node3D = $Granny
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var shooter: Shooter = $Granny/Shooter
 
 ## Tracks whether on the previous frame we were on the floor or not
 var _last_on_floor := false
@@ -112,3 +113,6 @@ func handle_throw():
 			"parameters/Ground/InvokeThrow/request", 
 			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		)
+
+func fire_projectile():
+	shooter.shoot()

@@ -16,6 +16,9 @@
 [ext_resource type="Animation" uid="uid://dq0t54tn8ai02" path="res://resources/animations/granny/Run.res" id="12_pmuyq"]
 [ext_resource type="Animation" uid="uid://cqgv4g5c0kco7" path="res://resources/animations/granny/Throw.res" id="13_na0uq"]
 [ext_resource type="Animation" uid="uid://dfa5dqnfccfk5" path="res://resources/animations/granny/Tpose.res" id="14_1ttej"]
+[ext_resource type="PackedScene" uid="uid://c6ngh84844c3k" path="res://scenes/shooter/shooter.tscn" id="15_ra40m"]
+[ext_resource type="AudioStream" uid="uid://cwerpjbh2hudn" path="res://assets/sounds/granny/player_shoot.wav" id="16_mm77f"]
+[ext_resource type="PackedScene" uid="uid://durw85p6hvvmg" path="res://scenes/projectile/projectile.tscn" id="16_syaq5"]
 [ext_resource type="AudioStream" uid="uid://c0t7b4qfqje5o" path="res://assets/sounds/granny/player_footsteps.wav" id="17_wp23x"]
 
 [sub_resource type="Skin" id="Skin_tqxik"]
@@ -396,12 +399,12 @@ transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_1
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_5vhpd"]
 filter_enabled = true
-filters = ["Armature/Skeleton3D:mixamorig_RightArm", "Armature/Skeleton3D:mixamorig_RightForeArm", "Armature/Skeleton3D:mixamorig_RightHand", "Armature/Skeleton3D:mixamorig_RightHandIndex1", "Armature/Skeleton3D:mixamorig_RightHandIndex2", "Armature/Skeleton3D:mixamorig_RightHandIndex3", "Armature/Skeleton3D:mixamorig_RightHandIndex4", "Armature/Skeleton3D:mixamorig_RightHandMiddle1", "Armature/Skeleton3D:mixamorig_RightHandMiddle2", "Armature/Skeleton3D:mixamorig_RightHandMiddle3", "Armature/Skeleton3D:mixamorig_RightHandMiddle4", "Armature/Skeleton3D:mixamorig_RightHandPinky1", "Armature/Skeleton3D:mixamorig_RightHandPinky2", "Armature/Skeleton3D:mixamorig_RightHandPinky3", "Armature/Skeleton3D:mixamorig_RightHandPinky4", "Armature/Skeleton3D:mixamorig_RightHandRing1", "Armature/Skeleton3D:mixamorig_RightHandRing2", "Armature/Skeleton3D:mixamorig_RightHandRing3", "Armature/Skeleton3D:mixamorig_RightHandRing4", "Armature/Skeleton3D:mixamorig_RightHandThumb1", "Armature/Skeleton3D:mixamorig_RightHandThumb2", "Armature/Skeleton3D:mixamorig_RightHandThumb3", "Armature/Skeleton3D:mixamorig_RightHandThumb4", "Armature/Skeleton3D:mixamorig_RightShoulder", "Armature/Skeleton3D:mixamorig_Right_Sleeve"]
+filters = ["..", "Armature/Skeleton3D:mixamorig_RightArm", "Armature/Skeleton3D:mixamorig_RightForeArm", "Armature/Skeleton3D:mixamorig_RightHand", "Armature/Skeleton3D:mixamorig_RightHandIndex1", "Armature/Skeleton3D:mixamorig_RightHandIndex2", "Armature/Skeleton3D:mixamorig_RightHandIndex3", "Armature/Skeleton3D:mixamorig_RightHandIndex4", "Armature/Skeleton3D:mixamorig_RightHandMiddle1", "Armature/Skeleton3D:mixamorig_RightHandMiddle2", "Armature/Skeleton3D:mixamorig_RightHandMiddle3", "Armature/Skeleton3D:mixamorig_RightHandMiddle4", "Armature/Skeleton3D:mixamorig_RightHandPinky1", "Armature/Skeleton3D:mixamorig_RightHandPinky2", "Armature/Skeleton3D:mixamorig_RightHandPinky3", "Armature/Skeleton3D:mixamorig_RightHandPinky4", "Armature/Skeleton3D:mixamorig_RightHandRing1", "Armature/Skeleton3D:mixamorig_RightHandRing2", "Armature/Skeleton3D:mixamorig_RightHandRing3", "Armature/Skeleton3D:mixamorig_RightHandRing4", "Armature/Skeleton3D:mixamorig_RightHandThumb1", "Armature/Skeleton3D:mixamorig_RightHandThumb2", "Armature/Skeleton3D:mixamorig_RightHandThumb3", "Armature/Skeleton3D:mixamorig_RightHandThumb4", "Armature/Skeleton3D:mixamorig_RightShoulder", "Armature/Skeleton3D:mixamorig_Right_Sleeve"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5vhpd"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5vhpd"]
-graph_offset = Vector2(-218.81427, 103.27896)
+graph_offset = Vector2(-273.32312, 2.7313843)
 nodes/output/position = Vector2(760, 140)
 nodes/Grounded/node = SubResource("AnimationNodeStateMachine_wp23x")
 nodes/Grounded/position = Vector2(180, 60)
@@ -1161,6 +1164,12 @@ skeleton = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Granny" unique_id=1583048310]
 libraries/ = SubResource("AnimationLibrary_t023g")
 autoplay = &"Idle"
+
+[node name="Shooter" parent="Granny" unique_id=644448110 instance=ExtResource("15_ra40m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1228171, 1.8775733, -0.27954718)
+projectile_scene = ExtResource("16_syaq5")
+stream_adj = ExtResource("16_mm77f")
+volume_db_adj = -12.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=236254270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025146484, 0)
