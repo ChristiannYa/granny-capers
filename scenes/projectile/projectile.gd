@@ -14,3 +14,7 @@ func _physics_process(delta: float):
 	_velocity.y += -(gravity * delta)
 	global_position += _velocity * delta
 	rotate_object_local(-Vector3.RIGHT, spin_speed * delta)
+
+
+func _on_hit_box_hit():
+	queue_free()

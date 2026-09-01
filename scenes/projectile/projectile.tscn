@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwkmbs0xi6er4" path="res://scenes/projectile/projectile.gd" id="1_2dulq"]
 [ext_resource type="AudioStream" uid="uid://b38hkgfjxx3qm" path="res://assets/sounds/projectiles/rollin_pin_spin.wav" id="1_t8015"]
 [ext_resource type="PackedScene" uid="uid://5kah5p1u15ef" path="res://scenes/life_timer/life_timer.tscn" id="3_lw0th"]
+[ext_resource type="PackedScene" uid="uid://biq6bc3xu3y17" path="res://scenes/hit_box/hit_box.tscn" id="4_tldn6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxhma"]
 resource_name = "colormap"
@@ -44,6 +45,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a1k5b")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tldn6"]
+radius = 0.07
+height = 0.82
+
 [node name="Projectile" type="Node3D" unique_id=485386949]
 script = ExtResource("1_2dulq")
 
@@ -57,3 +62,10 @@ pitch_scale = 1.5
 autoplay = true
 
 [node name="LifeTimer" parent="." unique_id=1031606671 instance=ExtResource("3_lw0th")]
+
+[node name="HitBox" parent="." unique_id=439298651 instance=ExtResource("4_tldn6")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+collision_mask = 1
+shape = SubResource("CapsuleShape3D_tldn6")
+
+[connection signal="hit" from="HitBox" to="." method="_on_hit_box_hit"]
