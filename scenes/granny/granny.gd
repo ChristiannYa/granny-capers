@@ -17,6 +17,7 @@ const _CAM_TILT_LERP := 0.9
 @onready var debug_label: Label3D = $DebugLabel
 @onready var camera_controller: Node3D = $CameraController
 @onready var granny: Node3D = $Granny
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 ## Tracks whether on the previous frame we were on the floor or not
 var _last_on_floor := false
@@ -28,6 +29,9 @@ var is_moving: bool:
 
 var is_falling: bool:
 	get: return velocity.y < 0.0
+
+var is_throwing: bool:
+	get: return animation_tree.get("parameters/Ground/InvokeThrow/active")
 
 func _ready():
 	_cam_base_tilt = camera_controller.rotation.x
@@ -42,6 +46,7 @@ func _physics_process(delta: float):
 	update_camera_tilt(delta)
 	move_and_slide()
 	check_landing()
+	handle_throw()
 
 func handle_camera(delta: float):
 	var cam_turn: float = Input.get_axis("cam_right", "cam_left")
@@ -93,3 +98,10 @@ func check_landing():
 	if !_last_on_floor and is_on_floor(): land_sound.play()
 	if is_on_floor(): _ground_y = global_position.y
 	_last_on_floor = is_on_floor()
+
+func handle_throw():
+	if Input.is_action_just_pressed("shoot") and is_on_floor() and !is_throwing:
+		animation_tree.set(
+			"parameters/Ground/InvokeThrow/request", 
+			AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		)
