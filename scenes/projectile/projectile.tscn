@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwkmbs0xi6er4" path="res://scenes/projectile/projectile.gd" id="1_2dulq"]
 [ext_resource type="AudioStream" uid="uid://b38hkgfjxx3qm" path="res://assets/sounds/projectiles/rollin_pin_spin.wav" id="1_t8015"]
+[ext_resource type="PackedScene" uid="uid://5kah5p1u15ef" path="res://scenes/life_timer/life_timer.tscn" id="3_lw0th"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxhma"]
 resource_name = "colormap"
@@ -54,3 +55,5 @@ mesh = SubResource("ArrayMesh_hk3ru")
 stream = ExtResource("1_t8015")
 pitch_scale = 1.5
 autoplay = true
+
+[node name="LifeTimer" parent="." unique_id=1031606671 instance=ExtResource("3_lw0th")]
