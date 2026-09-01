@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://chi0256j8qq3r" path="res://resources/meshes/scenery/playground_mesh.res" id="1_sgctp"]
 [ext_resource type="PackedScene" uid="uid://doerqvcoy1lgh" path="res://scenes/granny/granny.tscn" id="2_8absr"]
+[ext_resource type="PackedScene" uid="uid://durw85p6hvvmg" path="res://scenes/projectile/projectile.tscn" id="3_1ro2l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
 sky_top_color = Color(0.35802066, 0.44182307, 0.6516131, 1)
@@ -69,3 +70,6 @@ shape = SubResource("ConcavePolygonShape3D_8absr")
 
 [node name="Granny" parent="." unique_id=584751437 instance=ExtResource("2_8absr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60222, 1.6779265)
+
+[node name="Projectile" parent="." unique_id=485386949 instance=ExtResource("3_1ro2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86183953, 1.2507367, -0.50419605)
