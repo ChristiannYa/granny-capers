@@ -2,7 +2,166 @@
 
 [ext_resource type="Script" uid="uid://wciba6lc6pso" path="res://scenes/explosion_effect/explosion_effect.gd" id="1_ge2bv"]
 [ext_resource type="AudioStream" uid="uid://cq7f0l7ahffgl" path="res://assets/sounds/effects/explosion.wav" id="2_nnpj8"]
+[ext_resource type="Texture2D" uid="uid://dtlpbiwfbd83i" path="res://assets/particles/PNG (Transparent)/trace_04.png" id="3_lyos4"]
+
+[sub_resource type="Animation" id="Animation_lyos4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sparks:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nnpj8"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0233),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sparks:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.07),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyos4"]
+_data = {
+&"RESET": SubResource("Animation_lyos4"),
+&"run": SubResource("Animation_nnpj8")
+}
+
+[sub_resource type="Gradient" id="Gradient_nnpj8"]
+offsets = PackedFloat32Array(0.44, 1)
+colors = PackedColorArray(0.047557704, 0.047557637, 0.04755763, 1, 0.15487584, 0.15487605, 0.1548759, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nnpj8"]
+gradient = SubResource("Gradient_nnpj8")
+
+[sub_resource type="Curve" id="Curve_nnpj8"]
+_data = [Vector2(0, 0.80128217), 0.0, 0.0, 0, 0, Vector2(0.25185186, 1), 0.0, 0.0, 0, 0, Vector2(0.61728394, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.585605, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_nnpj8"]
+curve = SubResource("Curve_nnpj8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nnpj8"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+direction = Vector3(0, 1, 0)
+spread = 40.0
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.39999998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.39999998
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_nnpj8")
+color_ramp = SubResource("GradientTexture1D_nnpj8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnpj8"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ijv05"]
+material = SubResource("StandardMaterial3D_nnpj8")
+radial_segments = 12
+rings = 8
+
+[sub_resource type="Gradient" id="Gradient_lyos4"]
+offsets = PackedFloat32Array(0.009868421, 1)
+colors = PackedColorArray(1, 0.58431375, 0, 1, 0.9999998, 0.95567447, 0.8224269, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lyos4"]
+gradient = SubResource("Gradient_lyos4")
+
+[sub_resource type="Curve" id="Curve_lyos4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7012578, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lyos4"]
+curve = SubResource("Curve_lyos4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lyos4"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.5
+gravity = Vector3(0, 0, 0)
+damping_min = 1.5000001
+damping_max = 2.0
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_lyos4")
+color = Color(2.454227, 2.454227, 2.454227, 1)
+color_ramp = SubResource("GradientTexture1D_lyos4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyos4"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_lyos4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nnpj8"]
+material = SubResource("StandardMaterial3D_lyos4")
 
 [node name="ExplosionEffect" type="Node3D" unique_id=1473658654]
 script = ExtResource("1_ge2bv")
 audio_stream = ExtResource("2_nnpj8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=834124873]
+libraries/ = SubResource("AnimationLibrary_lyos4")
+
+[node name="Smoke" type="GPUParticles3D" parent="." unique_id=608965641]
+emitting = false
+amount = 16
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.88
+process_material = SubResource("ParticleProcessMaterial_nnpj8")
+draw_pass_1 = SubResource("SphereMesh_ijv05")
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=1429798160]
+emitting = false
+amount = 32
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_lyos4")
+draw_pass_1 = SubResource("QuadMesh_nnpj8")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
