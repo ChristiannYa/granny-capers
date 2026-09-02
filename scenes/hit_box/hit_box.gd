@@ -17,5 +17,5 @@ func apply_shape():
 func _ready():
 	apply_shape()
 
-func _on_body_exited(body: Node3D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	hit.emit()
