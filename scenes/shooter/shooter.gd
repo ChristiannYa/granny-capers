@@ -13,6 +13,4 @@ func _ready() -> void:
 	
 func shoot():
 	shoot_sound.play()
-	var new_projectile: Projectile = projectile_scene.instantiate()
-	add_child(new_projectile)
- 
+	SignalHub.emit_add_scene_at_transform(global_transform, projectile_scene)

@@ -51,6 +51,8 @@ height = 0.82
 
 [node name="Projectile" type="Node3D" unique_id=485386949]
 script = ExtResource("1_2dulq")
+gravity = 6.0
+speed = 20.0
 
 [node name="rollingPin" type="MeshInstance3D" parent="." unique_id=1985842329]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
