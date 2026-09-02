@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://chi0256j8qq3r" path="res://resources/meshes/scenery/playground_mesh.res" id="1_sgctp"]
 [ext_resource type="PackedScene" uid="uid://doerqvcoy1lgh" path="res://scenes/granny/granny.tscn" id="2_8absr"]
 [ext_resource type="PackedScene" uid="uid://b4rfh4pw6uyai" path="res://scenes/object_maker/object_maker.tscn" id="3_1ro2l"]
+[ext_resource type="PackedScene" uid="uid://cqs77bjth4wqp" path="res://scenes/moving_platform_an/moving_platform_an.tscn" id="4_51ujy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
 sky_top_color = Color(0.35802066, 0.44182307, 0.6516131, 1)
@@ -72,3 +73,20 @@ shape = SubResource("ConcavePolygonShape3D_8absr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60222, 1.6779265)
 
 [node name="ObjectMaker" parent="." unique_id=1090049633 instance=ExtResource("3_1ro2l")]
+
+[node name="MovingPlatformAn" parent="." unique_id=1785112093 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9157295, 1.7627373, -8.40283)
+
+[node name="MovingPlatformAn2" parent="." unique_id=1688952466 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.199026, 6.8759737, -14.779962)
+duration = 5.0
+
+[node name="MovingPlatformAn3" parent="." unique_id=947050033 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.68, 1.033, 9.213)
+offset = Vector3(0, 16, 0)
+duration = 6.0
+
+[node name="MovingPlatformAn4" parent="." unique_id=232043636 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.173, 9.213)
+offset = Vector3(20, 13, 0)
+duration = 6.0
