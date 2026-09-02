@@ -6212,9 +6212,9 @@ _subresources={
 "Idle": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/animations/granny/Idle.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://b114fbuhju22t",
-"settings/loop_mode": 0,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -12380,9 +12380,9 @@ _subresources={
 "Run": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/animations/granny/Run.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "uid://dq0t54tn8ai02",
-"settings/loop_mode": 0,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -14436,7 +14436,7 @@ _subresources={
 "Throw": {
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://resources/animations/granny/Throw.res",
-"save_to_file/keep_custom_tracks": "",
+"save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "uid://cqgv4g5c0kco7",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
