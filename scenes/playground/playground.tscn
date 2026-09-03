@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1mnx3f6bvsnk" path="res://scenes/pickup/jewel.tscn" id="5_ypqds"]
 [ext_resource type="PackedScene" uid="uid://ciup4ixjq5y8y" path="res://scenes/pickup/key.tscn" id="6_v0rs1"]
 [ext_resource type="PackedScene" uid="uid://bqdq2cwnyabhe" path="res://scenes/ui/game_ui/game_ui.tscn" id="7_nnrk3"]
+[ext_resource type="PackedScene" uid="uid://c2kc42bp6bd0e" path="res://scenes/level_door/level_door.tscn" id="8_uis3y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
 sky_top_color = Color(0.35802066, 0.44182307, 0.6516131, 1)
@@ -99,3 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -4.6654778)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2118812, 1.59, -3.556732)
 
 [node name="GameUi" parent="." unique_id=474011150 instance=ExtResource("7_nnrk3")]
+
+[node name="LevelDoor" parent="." unique_id=246477750 instance=ExtResource("8_uis3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.618849, 0.50237095, 7.0434494)

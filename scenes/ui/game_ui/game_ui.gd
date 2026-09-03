@@ -12,4 +12,8 @@ func _ready():
 		jewels.set_amount(str(scores[GameDefs.PickupType.JEWEL]))
 	)
 	SignalHub.show_key.connect(func(): key.show())
+	SignalHub.level_completed.connect(func(): 
+		get_tree().paused = true
+	)
+
 	ScoreManager.start_level()
