@@ -22,4 +22,5 @@ func _on_body_entered(body: Node3D):
 		if collect_sound:
 			SoundManager.play_3d(collect_sound, global_position)
 		SignalHub.emit_collected(pickup_type)
+		SignalHub.emit_points(points, global_position)
 		queue_free()

@@ -90,6 +90,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21846247, 1.5895092, -5.11
 [node name="Coin4" parent="." unique_id=1080489240 instance=ExtResource("4_51ujy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124844074, 1.5895092, -5.6420326)
 
+[node name="Coin5" parent="." unique_id=918366156 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67457056, 1.5895092, -6.34212)
+
 [node name="Jewel" parent="." unique_id=1406884096 instance=ExtResource("5_ypqds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -3.625275)
 
