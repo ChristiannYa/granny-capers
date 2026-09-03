@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bqdq2cwnyabhe"]
+
+[ext_resource type="PackedScene" uid="uid://5wyy6xnxbobu" path="res://scenes/ui/ui_collected/ui_collected.tscn" id="1_sqq8g"]
+[ext_resource type="Texture2D" uid="uid://cu48jexvttm81" path="res://assets/images/coin-gold.png" id="2_tabfc"]
+[ext_resource type="Texture2D" uid="uid://dpso4us1obf5m" path="res://assets/images/jewel.png" id="3_xjwy6"]
+[ext_resource type="Texture2D" uid="uid://bckkctefgobtb" path="res://assets/images/key.png" id="4_xjwy6"]
+[ext_resource type="Texture2D" uid="uid://c7d0qdrkb7iur" path="res://assets/images/heart.png" id="5_8cfus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqq8g"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.10980392, 0.10980392, 0.10980392, 0.7058824)
+
+[node name="GameUi" type="Control" unique_id=474011150]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="PanelContainer" parent="." unique_id=911269098]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sqq8g")
+
+[node name="Pickups" type="HBoxContainer" parent="Container" unique_id=758496621]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 24
+
+[node name="Coins" parent="Container/Pickups" unique_id=234324234 instance=ExtResource("1_sqq8g")]
+layout_mode = 2
+item_img_texture = ExtResource("2_tabfc")
+
+[node name="Jewels" parent="Container/Pickups" unique_id=1670367995 instance=ExtResource("1_sqq8g")]
+layout_mode = 2
+item_img_texture = ExtResource("3_xjwy6")
+
+[node name="Score" parent="Container/Pickups" unique_id=1244748925 instance=ExtResource("1_sqq8g")]
+layout_mode = 2
+
+[node name="Key" type="TextureRect" parent="Container" unique_id=1602426636]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_xjwy6")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Container" unique_id=1664414404]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Heart1" type="TextureRect" parent="Container/HeartsContainer" unique_id=901517575]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_8cfus")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="Container/HeartsContainer" unique_id=975908517]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_8cfus")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="Container/HeartsContainer" unique_id=636667813]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_8cfus")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart4" type="TextureRect" parent="Container/HeartsContainer" unique_id=801153556]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_8cfus")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart5" type="TextureRect" parent="Container/HeartsContainer" unique_id=960790154]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_8cfus")
+expand_mode = 1
+stretch_mode = 4

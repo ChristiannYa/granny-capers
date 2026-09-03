@@ -29,6 +29,10 @@ window/size/window_height_override=810
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/custom_font="uid://b4ruxt6lfxkg8"
+
 [input]
 
 m_left={

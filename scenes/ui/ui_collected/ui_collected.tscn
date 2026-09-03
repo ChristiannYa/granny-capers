@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5wyy6xnxbobu"]
+
+[ext_resource type="Script" uid="uid://1ehdjsrtuka4" path="res://scenes/ui/ui_collected/ui_collected.gd" id="1_j8cgr"]
+
+[node name="UiCollected" type="HBoxContainer" unique_id=234324234]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_j8cgr")
+
+[node name="Image" type="TextureRect" parent="." unique_id=861321788]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AmountLabel" type="Label" parent="." unique_id=2130802831]
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "00 / 00"

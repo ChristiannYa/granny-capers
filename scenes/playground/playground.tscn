@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://do8qvdfobheu3" path="res://scenes/pickup/coin.tscn" id="4_51ujy"]
 [ext_resource type="PackedScene" uid="uid://b1mnx3f6bvsnk" path="res://scenes/pickup/jewel.tscn" id="5_ypqds"]
 [ext_resource type="PackedScene" uid="uid://ciup4ixjq5y8y" path="res://scenes/pickup/key.tscn" id="6_v0rs1"]
+[ext_resource type="PackedScene" uid="uid://bqdq2cwnyabhe" path="res://scenes/ui/game_ui/game_ui.tscn" id="7_nnrk3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
 sky_top_color = Color(0.35802066, 0.44182307, 0.6516131, 1)
@@ -84,3 +85,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -3.625275)
 
 [node name="Key" parent="." unique_id=695714496 instance=ExtResource("6_v0rs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2118812, 1.59, -3.556732)
+
+[node name="GameUi" parent="." unique_id=474011150 instance=ExtResource("7_nnrk3")]
