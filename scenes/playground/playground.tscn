@@ -80,8 +80,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8257565, 0)
 [node name="Coin" parent="." unique_id=1697165550 instance=ExtResource("4_51ujy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020824432, 1.5895092, -3.6968536)
 
+[node name="Coin2" parent="." unique_id=1613196363 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11444235, 1.5895092, -4.289769)
+
+[node name="Coin3" parent="." unique_id=289124734 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21846247, 1.5895092, -5.1115294)
+
+[node name="Coin4" parent="." unique_id=1080489240 instance=ExtResource("4_51ujy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124844074, 1.5895092, -5.6420326)
+
 [node name="Jewel" parent="." unique_id=1406884096 instance=ExtResource("5_ypqds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -3.625275)
+
+[node name="Jewel2" parent="." unique_id=1826532294 instance=ExtResource("5_ypqds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -4.6654778)
 
 [node name="Key" parent="." unique_id=695714496 instance=ExtResource("6_v0rs1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2118812, 1.59, -3.556732)

@@ -9,6 +9,7 @@ radius = 0.4
 
 [node name="Coin" unique_id=1697165550 instance=ExtResource("1_ukeq3")]
 collect_sound = ExtResource("2_q38tl")
+pickup_type = 1
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=724059013]
 shape = SubResource("SphereShape3D_ukeq3")

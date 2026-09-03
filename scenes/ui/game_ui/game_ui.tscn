@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqdq2cwnyabhe"]
 
+[ext_resource type="Script" uid="uid://by4dqpd54iolp" path="res://scenes/ui/game_ui/game_ui.gd" id="1_2lwfb"]
 [ext_resource type="PackedScene" uid="uid://5wyy6xnxbobu" path="res://scenes/ui/ui_collected/ui_collected.tscn" id="1_sqq8g"]
 [ext_resource type="Texture2D" uid="uid://cu48jexvttm81" path="res://assets/images/coin-gold.png" id="2_tabfc"]
 [ext_resource type="Texture2D" uid="uid://dpso4us1obf5m" path="res://assets/images/jewel.png" id="3_xjwy6"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2lwfb")
 
 [node name="Container" type="PanelContainer" parent="." unique_id=911269098]
 layout_mode = 1
