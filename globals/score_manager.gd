@@ -2,8 +2,16 @@ extends Node
 
 var _scores: Dictionary[GameDefs.PickupType, CollectibleScore] = {}
 
+func _ready():
+	SignalHub.collected.connect(func (type: GameDefs.PickupType):
+		if not _scores.has(type): return
+		_scores[type].inc()
+		SignalHub.emit_update_ui(_scores)
+	)
+
 func start_level():
 	count_pickups()
+	SignalHub.emit_update_ui(_scores)
 
 func count_pickups():
 	var pickups: Dictionary[GameDefs.PickupType, int] = {}

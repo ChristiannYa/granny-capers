@@ -7,5 +7,7 @@ var _cur := 0
 func set_total(tot: int):
 	_tot = tot
 
-func _to_string():
+func inc(): _cur += 1
+
+func _to_string() -> String:
 	return "%02d / %02d" % [_cur, _tot]
