@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://q4u6yuwwmxje"]
+
+[ext_resource type="Script" uid="uid://omtnsqakq2ay" path="res://scenes/rotator/rotator.gd" id="1_p0ul1"]
+
+[node name="Rotator" type="Node" unique_id=1587073515]
+script = ExtResource("1_p0ul1")

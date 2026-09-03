@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://jgswwt84kniw"]
+
+[ext_resource type="Script" uid="uid://c68wxyyesbc62" path="res://scenes/pickup/pickup.gd" id="1_4yg4j"]
+[ext_resource type="PackedScene" uid="uid://q4u6yuwwmxje" path="res://scenes/rotator/rotator.tscn" id="1_oep1y"]
+
+[node name="Pickup" type="Area3D" unique_id=1697165550]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_4yg4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=724059013]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2026273299]
+
+[node name="Rotator" parent="Visuals" unique_id=1587073515 instance=ExtResource("1_oep1y")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1mnx3f6bvsnk"]
+
+[ext_resource type="PackedScene" uid="uid://jgswwt84kniw" path="res://scenes/pickup/pickup.tscn" id="1_slniw"]
+[ext_resource type="AudioStream" uid="uid://li6v7iduahr8" path="res://assets/sounds/pickups/Jewel_Collect.wav" id="2_534xo"]
+[ext_resource type="PackedScene" uid="uid://dnvse2te8p28n" path="res://assets/models/platformer/jewel.glb" id="2_pmfd2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_slniw"]
+radius = 0.4
+
+[node name="Jewel" unique_id=1697165550 instance=ExtResource("1_slniw")]
+collect_sound = ExtResource("2_534xo")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=724059013]
+shape = SubResource("SphereShape3D_slniw")
+
+[node name="jewel2" parent="Visuals" parent_id_path=PackedInt32Array(2026273299) index="0" unique_id=1933932966 instance=ExtResource("2_pmfd2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18584736, 0)
+
+[node name="Rotator" parent="Visuals" parent_id_path=PackedInt32Array(2026273299) index="1" unique_id=1587073515]
+spin_speed = 2.0
+randomize_spin = true

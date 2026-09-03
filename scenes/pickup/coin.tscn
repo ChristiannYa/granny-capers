@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://do8qvdfobheu3"]
+
+[ext_resource type="PackedScene" uid="uid://jgswwt84kniw" path="res://scenes/pickup/pickup.tscn" id="1_ukeq3"]
+[ext_resource type="AudioStream" uid="uid://caskw8tva0fuf" path="res://assets/sounds/pickups/coin_pickup.wav" id="2_q38tl"]
+[ext_resource type="PackedScene" uid="uid://dgjbe7tcjcwjr" path="res://assets/models/platformer/coin-gold.glb" id="2_siqx3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ukeq3"]
+radius = 0.4
+
+[node name="Coin" unique_id=1697165550 instance=ExtResource("1_ukeq3")]
+collect_sound = ExtResource("2_q38tl")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=724059013]
+shape = SubResource("SphereShape3D_ukeq3")
+
+[node name="coin-gold2" parent="Visuals" parent_id_path=PackedInt32Array(2026273299) index="0" unique_id=2078027794 instance=ExtResource("2_siqx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19622861, 0)
+
+[node name="Rotator" parent="Visuals" parent_id_path=PackedInt32Array(2026273299) index="1" unique_id=1587073515]
+spin_axis = Vector3(0, 1, 0)
+spin_speed = 2.0
