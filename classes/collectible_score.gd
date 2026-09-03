@@ -9,5 +9,7 @@ func set_total(tot: int):
 
 func inc(): _cur += 1
 
+func has_all() -> bool: return _cur >= _tot
+
 func _to_string() -> String:
 	return "%02d / %02d" % [_cur, _tot]

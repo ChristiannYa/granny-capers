@@ -7,6 +7,8 @@ func _ready():
 		if not _scores.has(type): return
 		_scores[type].inc()
 		SignalHub.emit_update_ui(_scores)
+		if type == GameDefs.PickupType.JEWEL and _scores[type].has_all():
+			SignalHub.emit_show_key()
 	)
 
 func start_level():

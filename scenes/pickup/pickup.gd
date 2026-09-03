@@ -8,6 +8,15 @@ extends Area3D
 func _enter_tree():
 	add_to_group(GameDefs.GROUP_PICKUP)
 
+func _ready():
+	if pickup_type == GameDefs.PickupType.LEVEL_KEY: 
+		monitoring = false
+		hide()
+		SignalHub.show_key.connect(func(): 
+			set_monitoring.call_deferred(true)
+			show()
+		)
+
 func _on_body_entered(body: Node3D):
 	if body is Granny:
 		if collect_sound:

@@ -47,6 +47,7 @@ item_img_texture = ExtResource("3_xjwy6")
 layout_mode = 2
 
 [node name="Key" type="TextureRect" parent="Container" unique_id=1602426636]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 custom_maximum_size = Vector2(64, 64)
 layout_mode = 2
