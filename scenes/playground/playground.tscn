@@ -3,11 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://chi0256j8qq3r" path="res://resources/meshes/scenery/playground_mesh.res" id="1_sgctp"]
 [ext_resource type="PackedScene" uid="uid://doerqvcoy1lgh" path="res://scenes/granny/granny.tscn" id="2_8absr"]
 [ext_resource type="PackedScene" uid="uid://b4rfh4pw6uyai" path="res://scenes/object_maker/object_maker.tscn" id="3_1ro2l"]
-[ext_resource type="PackedScene" uid="uid://do8qvdfobheu3" path="res://scenes/pickup/coin.tscn" id="4_51ujy"]
-[ext_resource type="PackedScene" uid="uid://b1mnx3f6bvsnk" path="res://scenes/pickup/jewel.tscn" id="5_ypqds"]
-[ext_resource type="PackedScene" uid="uid://ciup4ixjq5y8y" path="res://scenes/pickup/key.tscn" id="6_v0rs1"]
 [ext_resource type="PackedScene" uid="uid://bqdq2cwnyabhe" path="res://scenes/ui/game_ui/game_ui.tscn" id="7_nnrk3"]
-[ext_resource type="PackedScene" uid="uid://c2kc42bp6bd0e" path="res://scenes/level_door/level_door.tscn" id="8_uis3y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
 sky_top_color = Color(0.35802066, 0.44182307, 0.6516131, 1)
@@ -78,31 +74,4 @@ shape = SubResource("ConcavePolygonShape3D_8absr")
 [node name="Granny" parent="." unique_id=584751437 instance=ExtResource("2_8absr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8257565, 0)
 
-[node name="Coin" parent="." unique_id=1697165550 instance=ExtResource("4_51ujy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020824432, 1.5895092, -3.6968536)
-
-[node name="Coin2" parent="." unique_id=1613196363 instance=ExtResource("4_51ujy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11444235, 1.5895092, -4.289769)
-
-[node name="Coin3" parent="." unique_id=289124734 instance=ExtResource("4_51ujy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21846247, 1.5895092, -5.1115294)
-
-[node name="Coin4" parent="." unique_id=1080489240 instance=ExtResource("4_51ujy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.124844074, 1.5895092, -5.6420326)
-
-[node name="Coin5" parent="." unique_id=918366156 instance=ExtResource("4_51ujy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67457056, 1.5895092, -6.34212)
-
-[node name="Jewel" parent="." unique_id=1406884096 instance=ExtResource("5_ypqds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -3.625275)
-
-[node name="Jewel2" parent="." unique_id=1826532294 instance=ExtResource("5_ypqds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101873, 1.59, -4.6654778)
-
-[node name="Key" parent="." unique_id=695714496 instance=ExtResource("6_v0rs1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2118812, 1.59, -3.556732)
-
 [node name="GameUi" parent="." unique_id=474011150 instance=ExtResource("7_nnrk3")]
-
-[node name="LevelDoor" parent="." unique_id=246477750 instance=ExtResource("8_uis3y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.618849, 0.50237095, 7.0434494)

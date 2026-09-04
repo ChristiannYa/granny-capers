@@ -22,17 +22,11 @@ func start_level():
 	SignalHub.emit_score_changed(_points)
 
 func count_pickups():
-	var pickups: Dictionary[GameDefs.PickupType, int] = {}
-
+	for type in GameDefs.PickupType.values():
+		_scores[type] = CollectibleScore.new()
+	
 	for node in get_tree().get_nodes_in_group(GameDefs.GROUP_PICKUP):
 		var pickup := node as Pickup
 		if pickup == null: continue
-		if not pickups.has(pickup.pickup_type):
-			pickups[pickup.pickup_type] = 0
-		pickups[pickup.pickup_type] += 1
-
-	for pickup in pickups:
-		_scores[pickup] = CollectibleScore.new()
-		_scores[pickup].set_total(pickups[pickup])
-
+		_scores[pickup.pickup_type].inc_total()
 	pass
