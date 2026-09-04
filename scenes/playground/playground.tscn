@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://doerqvcoy1lgh" path="res://scenes/granny/granny.tscn" id="2_8absr"]
 [ext_resource type="PackedScene" uid="uid://b4rfh4pw6uyai" path="res://scenes/object_maker/object_maker.tscn" id="3_1ro2l"]
 [ext_resource type="PackedScene" uid="uid://c5ob6jvwl8hg0" path="res://scenes/hurt_box/hurt_box.tscn" id="5_ypqds"]
+[ext_resource type="PackedScene" uid="uid://d4nnwcvygeqo2" path="res://scenes/health/health.tscn" id="6_v0rs1"]
 [ext_resource type="PackedScene" uid="uid://bqdq2cwnyabhe" path="res://scenes/ui/game_ui/game_ui.tscn" id="7_nnrk3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eha2c"]
@@ -87,7 +88,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8257565, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31961817, 1.9999998, -6.612239)
 mesh = SubResource("BoxMesh_51ujy")
 
-[node name="HurtBox" parent="MeshInstance3D" unique_id=2111785634 instance=ExtResource("5_ypqds")]
+[node name="HurtBox" parent="MeshInstance3D" unique_id=2111785634 node_paths=PackedStringArray("health") instance=ExtResource("5_ypqds")]
 collision_layer = 32
 collision_mask = 4
+health = NodePath("../Health")
 shape = SubResource("BoxShape3D_tncby")
+
+[node name="Health" parent="MeshInstance3D" unique_id=2101897546 instance=ExtResource("6_v0rs1")]
