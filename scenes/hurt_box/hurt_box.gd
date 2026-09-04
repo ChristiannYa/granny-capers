@@ -1,8 +1,6 @@
-@tool
-class_name HitBox
+class_name HurtBox
 extends Area3D
 
-@export var damage := 1
 
 @export var shape: Shape3D:
 	set(value):
@@ -11,17 +9,13 @@ extends Area3D
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
-signal hit
-
-func apply_shape():
-	if collision_shape_3d: collision_shape_3d.shape = shape
 
 func _ready():
 	apply_shape()
 
-func _on_body_entered(body: Node3D) -> void:
-	hit.emit()
-
+func apply_shape():
+	if collision_shape_3d: collision_shape_3d.shape = shape
 
 func _on_area_entered(area: Area3D) -> void:
-	hit.emit()
+	if area is HitBox:
+		print("(HurtBox) damage=", area.damage)
