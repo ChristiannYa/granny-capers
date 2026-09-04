@@ -6,6 +6,9 @@ extends Node
 signal health_changed(cur: int)
 signal died
 
+var health: int:
+	get: return _cur_health
+
 var _cur_health: int
 
 func _ready():

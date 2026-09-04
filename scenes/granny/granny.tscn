@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://c6xynytr3jx53" path="res://scenes/granny/granny.gd" id="1_f4lpe"]
 [ext_resource type="AudioStream" uid="uid://bfu63tkg4gbrk" path="res://assets/sounds/granny/player_land.wav" id="2_3cyfu"]
 [ext_resource type="ArrayMesh" uid="uid://dtbilf6dfbfl3" path="res://resources/meshes/granny/Granny_Fitness_Grandma_BodyGeo.res" id="2_152aa"]
+[ext_resource type="PackedScene" uid="uid://d4nnwcvygeqo2" path="res://scenes/health/health.tscn" id="2_pmuyq"]
 [ext_resource type="ArrayMesh" uid="uid://ypahmd1ew66l" path="res://resources/meshes/granny/Granny_Fitness_Grandma_BrowsAnimGeo.res" id="3_03mnn"]
 [ext_resource type="AudioStream" uid="uid://l726rtlmrm4a" path="res://assets/sounds/granny/player_jump.wav" id="3_h0bxx"]
+[ext_resource type="PackedScene" uid="uid://c5ob6jvwl8hg0" path="res://scenes/hurt_box/hurt_box.tscn" id="3_na0uq"]
 [ext_resource type="ArrayMesh" uid="uid://cbmjbeo0qnd20" path="res://resources/meshes/granny/Granny_Fitness_Grandma_EyesAnimGeo.res" id="4_0sqdm"]
 [ext_resource type="ArrayMesh" uid="uid://chdph7rhm0v8w" path="res://resources/meshes/granny/Granny_Fitness_Grandma_MouthAnimGeo.res" id="5_ue43d"]
 [ext_resource type="Animation" uid="uid://ct3a50hp0sj2f" path="res://resources/animations/granny/Climb.res" id="6_5vhpd"]
@@ -20,6 +22,12 @@
 [ext_resource type="AudioStream" uid="uid://cwerpjbh2hudn" path="res://assets/sounds/granny/player_shoot.wav" id="16_mm77f"]
 [ext_resource type="PackedScene" uid="uid://durw85p6hvvmg" path="res://scenes/projectile/projectile.tscn" id="16_syaq5"]
 [ext_resource type="AudioStream" uid="uid://c0t7b4qfqje5o" path="res://assets/sounds/granny/player_footsteps.wav" id="17_wp23x"]
+[ext_resource type="AudioStream" uid="uid://d383l1laep3eh" path="res://assets/sounds/granny/playerhurt1.wav" id="23_ua8d1"]
+[ext_resource type="AudioStream" uid="uid://802lxl5w4wwm" path="res://assets/sounds/granny/playerhurt3.wav" id="25_u3jcr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pmuyq"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="Skin" id="Skin_tqxik"]
 resource_name = "Skin"
@@ -339,6 +347,11 @@ _data = {
 radius = 0.23779297
 height = 1.949707
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pmuyq"]
+streams_count = 2
+stream_0/stream = ExtResource("23_ua8d1")
+stream_1/stream = ExtResource("25_u3jcr")
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ra40m"]
 animation = &"Fall"
 
@@ -439,6 +452,14 @@ graph_offset = Vector2(-150, -66)
 [node name="Granny" type="CharacterBody3D" unique_id=584751437]
 collision_layer = 2
 script = ExtResource("1_f4lpe")
+
+[node name="Health" parent="." unique_id=2101897546 instance=ExtResource("2_pmuyq")]
+max_health = 5
+
+[node name="HurtBox" parent="." unique_id=2111785634 node_paths=PackedStringArray("health") instance=ExtResource("3_na0uq")]
+collision_mask = 16
+health = NodePath("../Health")
+shape = SubResource("CapsuleShape3D_pmuyq")
 
 [node name="Granny" type="Node3D" parent="." unique_id=131267642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -1186,6 +1207,11 @@ pitch_scale = 1.6
 stream = ExtResource("17_wp23x")
 pitch_scale = 1.15
 
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=951063586]
+stream = SubResource("AudioStreamRandomizer_pmuyq")
+volume_db = -6.0
+pitch_scale = 1.15
+
 [node name="DebugLabel" type="Label3D" parent="." unique_id=1809434436]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5784559, 0)
 visible = false
@@ -1212,3 +1238,6 @@ parameters/Ground/InvokeThrow/active = false
 parameters/Ground/InvokeThrow/internal_active = false
 parameters/Ground/InvokeThrow/request = 0
 parameters/Ground/TimeScale/scale = 2.0
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]

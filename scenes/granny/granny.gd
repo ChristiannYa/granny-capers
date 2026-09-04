@@ -15,11 +15,13 @@ const _CAM_TILT_LERP := 0.9
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var land_sound: AudioStreamPlayer = $LandSound
 @onready var walk_sound: AudioStreamPlayer = $WalkSound
+@onready var hurt_sound: AudioStreamPlayer = $HurtSound
 @onready var debug_label: Label3D = $DebugLabel
 @onready var camera_controller: Node3D = $CameraController
 @onready var granny: Node3D = $Granny
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var shooter: Shooter = $Granny/Shooter
+@onready var health: Health = $Health
 
 ## Tracks whether on the previous frame we were on the floor or not
 var _last_on_floor := false
@@ -38,6 +40,7 @@ var is_throwing: bool:
 func _ready():
 	_cam_base_tilt = camera_controller.rotation.x
 	_ground_y = global_position.y
+	late_init.call_deferred()
 
 func _physics_process(delta: float):
 	apply_gravity(delta)
@@ -50,6 +53,9 @@ func _physics_process(delta: float):
 	check_landing()
 	update_walk_sound()
 	handle_throw()
+
+func late_init():
+	SignalHub.emit_player_health_changed(health.health)
 
 func handle_camera(delta: float):
 	var cam_turn: float = Input.get_axis("cam_right", "cam_left")
@@ -116,3 +122,11 @@ func handle_throw():
 
 func fire_projectile():
 	shooter.shoot()
+
+
+func _on_health_health_changed(cur: int):
+	hurt_sound.play()
+	SignalHub.emit_player_health_changed(cur)
+
+func _on_health_died():
+	set_physics_process(false)

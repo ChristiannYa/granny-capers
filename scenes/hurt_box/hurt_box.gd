@@ -1,3 +1,4 @@
+@tool
 class_name HurtBox
 extends Area3D
 
